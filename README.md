@@ -31,10 +31,10 @@ portas (`IUserRepository`, `IApplicationDbContext`, `ISqlConnectionFactory`, `IP
 
 ```bash
 # 1. Clone o repositório
-`git clone https://github.com/alexcar/PlayByte.git`
+git clone https://github.com/alexcar/PlayByte.git
 
 # 2. Abra o terminal na pasta raiz do projeto para subir o banco.
-`docker compose up -d`
+docker compose up -d
 
 # 3. Atualiza o banco de dados
 dotnet ef database update -p src/PlayByte.Infrastructure -s src/PlayByte.Api
