@@ -65,7 +65,7 @@ http://localhost:4200
 
 # 10. Precione [Ctrl] + [C] no terminal para finalizar o backend.
 
-# 11. Abra o terminal na pasta raiz do projeto, finalize o container e apaga os dados do banco de dados
+# 11. Abra o terminal na pasta raiz do projeto, finalize o container e apaga os dados do banco
 docker compose down -v
 
 # 12. Lista as imagens
