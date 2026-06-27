@@ -86,7 +86,7 @@ O aluno desenvolveu a camada de acesso a dados da aplicação? 👉 [Infrastruct
 
 ### 2.  Projetar aplicativos Web com Angular e Web API 
 
-O aluno desenvolveu o módulo de cadastro e login? 👉 [Cadastro](https://github.com/alexcar/PlayByte/blob/main/src/PlayByte.Api/Controllers/UsersController.cs) e [Login] (https://github.com/alexcar/PlayByte/blob/main/src/PlayByte.Api/Controllers/AuthController.cs)  
+O aluno desenvolveu o módulo de cadastro e login? 👉 [Cadastro](https://github.com/alexcar/PlayByte/blob/main/src/PlayByte.Api/Controllers/UsersController.cs) e [Login](https://github.com/alexcar/PlayByte/blob/main/src/PlayByte.Api/Controllers/AuthController.cs)  
 O aluno desenvolveu o módulo de transação? 👉 [Transação](https://github.com/alexcar/PlayByte/blob/main/src/PlayByte.Api/Controllers/PaymentsController.cs)  
 O aluno desenvolveu o módulo de busca de música? 👉 [Busca](https://github.com/alexcar/PlayByte/blob/main/src/PlayByte.Api/Controllers/SearchController.cs)  
 O aluno desenvolveu o módulo de favoritar musica? 👉 [Favoritar](https://github.com/alexcar/PlayByte/blob/main/src/PlayByte.Api/Controllers/FavoritesController.cs)  
