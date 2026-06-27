@@ -101,7 +101,13 @@ O aluno desenvolveu o módulo de favoritar musica? 👉 [Favoritar](https://gith
 ### 4. Disponibilizar aplicativos Web no Microsoft Azure
 
 O aluno demonstrou compreender o Microsoft Azure?  
-O aluno demonstrou compreender os serviços de armazenamento de dados do Microsoft Azure?  
-O aluno demonstrou compreender o serviço de SQL do Microsoft Azure?  
-O aluno demonstrou compreender o serviço de aplicativos web do Microsoft Azure?  
+Microsoft Azure é a plataforma de computação em nuvem da Microsoft, usada para hospedar, gerenciar e executar aplicações e serviços na nuvem.
 
+O aluno demonstrou compreender os serviços de armazenamento de dados do Microsoft Azure?  
+Os serviços de armazenamento do Azure servem para guardar arquivos, bancos de dados, blobs, filas e outros tipos de dados de forma segura, escalável e acessível pela nuvem.
+
+O aluno demonstrou compreender o serviço de SQL do Microsoft Azure?  
+O Azure SQL é o banco de dados relacional gerenciado do Azure, usado para armazenar e consultar dados estruturados sem precisar gerenciar servidores físicos.
+
+O aluno demonstrou compreender o serviço de aplicativos web do Microsoft Azure?  
+O Azure App Service permite criar, hospedar e escalar aplicações web, APIs e backends de forma rápida, segura e totalmente gerenciada.
