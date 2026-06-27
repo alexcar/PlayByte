@@ -44,10 +44,10 @@ dotnet ef database update -p src/PlayByte.Infrastructure -s src/PlayByte.Api
 # 4. Executa a API
 dotnet run --project src/PlayByte.Api --launch-profile http
 
-# 5. Popula o catálogo (banda/álbuns/faixas)
+# 5. Abra o terminal na pasta raiz do projeto e popule o catálogo (banda/álbuns/faixas)
 ./scripts/seed-catalog.ps1
 
-# 6. Abra o terminal na pasta raiz do projeto e execute o frontend Angular
+# 6. Execute o frontend Angular
 cd frontend
 npm install
 npm start
