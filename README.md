@@ -8,6 +8,8 @@ exceções e **Serilog** com persistência de erros no banco e *fallback* para a
 ## Arquitetura
 
 ```
+PlayByte Angular        -> Angular 19 + PrimeNG 19
+   |
 PlayByte.Api            -> ASP.NET Core Web API (Controllers + OpenAPI/Scalar)
    |  depende de
 PlayByte.Application     -> Casos de uso (CQRS via MediatR), portas, behaviors, validação
@@ -23,6 +25,8 @@ portas (`IUserRepository`, `IApplicationDbContext`, `ISqlConnectionFactory`, `IP
 
 ## Pré-requisitos
 
+- Node.js 18.19+ ou 20.11+ (recomendado: 20 LTS)
+- npm 10+
 - .NET SDK 10.0.100+
 - Docker (para subir o SQL Server) ou uma instância de SQL Server local
 - `dotnet-ef` (`dotnet tool install --global dotnet-ef`)
