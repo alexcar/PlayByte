@@ -37,7 +37,8 @@ git clone https://github.com/alexcar/PlayByte.git
 cd PlayByte
 docker compose up -d
 
-# 3. Atualiza o banco de dados
+# 3. Restaura os pacotes e atualiza o banco de dados
+dotnet restore
 dotnet ef database update -p src/PlayByte.Infrastructure -s src/PlayByte.Api
 
 # 4. Popula o catálogo (banda/álbuns/faixas)
