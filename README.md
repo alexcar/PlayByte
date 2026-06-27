@@ -75,3 +75,7 @@ docker images
 docker rmi [IMAGE ID]
 ```
 
+## Rubricas
+
+O aluno desenvolveu a camada de apresentação da aplicação?
+👉 [frontend](./frontend/)
