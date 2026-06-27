@@ -80,7 +80,7 @@ docker rmi [IMAGE ID]
 ### 1. Desenvolvimento de sistemas web e a utilização de arquiteturas em camadas
 
 O aluno desenvolveu a camada de apresentação da aplicação? 👉 [Frontend](./frontend/)  
-O aluno desenvolveu a camada de serviços da aplicação? 👉 [Application](./PlayByte.Application/)  
+O aluno desenvolveu a camada de serviços da aplicação? 👉 [Application](./PlayByte/tree/main/src/PlayByte.Application/)  
 O aluno desenvolveu a camada de negócios da aplicação? 👉 [Domain](./PlayByte.Domain/)  
 O aluno desenvolveu a camada de acesso a dados da aplicação? 👉 [Infrastructure](./PlayByte.Infrastructure/)  
 
