@@ -59,19 +59,19 @@ npm start
 # 7. Execute o navegador e acesse
 http://localhost:4200
 
-# 8. Na página inicial da aplicação, clice no botão Criar Conta para criar uma conta.
+# 8. Na página inicial da aplicação, clice no botão Criar Conta para criar uma conta
 
-# 9. Precione [Ctrl] + [C] no terminal para finalizar o frontend.
+# 9. Precione [Ctrl] + [C] no terminal onde foi executado o frontend para finalizá-lo
 
-# 10. Precione [Ctrl] + [C] no terminal para finalizar o backend.
+# 10. Precione [Ctrl] + [C] no terminal onde foi executado o backend para finalizá-lo
 
-# 11. Abra o terminal na pasta raiz do projeto, finalize o container e apaga os dados do banco
+# 11. Abra o terminal na pasta raiz do projeto para finalizar o container e apagar os dados do banco
 docker compose down -v
 
-# 12. Lista as imagens
+# 12. Lista as imagens para identificar o ID da imágem do SQL Server
 docker images
 
-# 13. Remove a imagem SQL Server
+# 13. Copie o ID da imagem do SQL Server e utilize-o no comando abaixo para removê-la
 docker rmi [IMAGE ID]
 ```
 
