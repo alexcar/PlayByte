@@ -1,7 +1,7 @@
 # PlayByte
 
-API de streaming de música (projeto acadêmico) em **.NET 10 / C#**, estruturada em
-**Clean Architecture + DDD**, com **CQRS** (Dapper para leitura, EF Core para escrita
+API de streaming de música (projeto acadêmico) em Angular no frontend e no backend com **.NET 10 / C#**,
+estruturada em **Clean Architecture + DDD**, com **CQRS** (Dapper para leitura, EF Core para escrita
 com *soft delete*), **SQL Server**, **Result pattern**, filtro global de
 exceções e **Serilog** com persistência de erros no banco e *fallback* para arquivo.
 
