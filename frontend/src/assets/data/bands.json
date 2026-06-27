@@ -1,0 +1,14 @@
+[
+  { "id": "b1", "name": "Queen", "genre": "Rock Clássico", "emoji": "🎸", "albumCount": 15, "description": "Banda britânica de rock formada em 1970, em Londres. Uma das mais vendidas de todos os tempos.", "favorite": true },
+  { "id": "b2", "name": "Coldplay", "genre": "Alternative", "emoji": "🎹", "albumCount": 9, "description": "Banda de rock alternativo britânica formada em 1996.", "favorite": true },
+  { "id": "b3", "name": "Foo Fighters", "genre": "Rock", "emoji": "🥁", "albumCount": 10, "description": "Banda de rock americana fundada em 1994 por Dave Grohl.", "favorite": false },
+  { "id": "b4", "name": "Pink Floyd", "genre": "Prog Rock", "emoji": "🎷", "albumCount": 15, "description": "Banda inglesa de rock progressivo formada em 1965.", "favorite": true },
+  { "id": "b5", "name": "Metallica", "genre": "Heavy Metal", "emoji": "🎺", "albumCount": 10, "description": "Banda de heavy metal americana formada em 1981.", "favorite": false },
+  { "id": "b6", "name": "Nirvana", "genre": "Grunge", "emoji": "🎻", "albumCount": 3, "description": "Banda de grunge americana formada em 1987.", "favorite": false },
+  { "id": "b7", "name": "Radiohead", "genre": "Alternative", "emoji": "🎤", "albumCount": 9, "description": "Banda de rock alternativo inglesa formada em 1985.", "favorite": false },
+  { "id": "b8", "name": "AC/DC", "genre": "Hard Rock", "emoji": "🪗", "albumCount": 17, "description": "Banda de hard rock australiana formada em 1973.", "favorite": false },
+  { "id": "b9", "name": "Led Zeppelin", "genre": "Rock", "emoji": "🎙️", "albumCount": 9, "description": "Banda de rock inglesa formada em 1968.", "favorite": false },
+  { "id": "b10", "name": "The Beatles", "genre": "Rock", "emoji": "🎵", "albumCount": 13, "description": "Banda de rock inglesa formada em Liverpool em 1960.", "favorite": false },
+  { "id": "b11", "name": "Red Hot Chili Peppers", "genre": "Funk Rock", "emoji": "🪘", "albumCount": 12, "description": "Banda de funk rock americana formada em 1983.", "favorite": false },
+  { "id": "b12", "name": "Linkin Park", "genre": "Nu-Metal", "emoji": "🎼", "albumCount": 7, "description": "Banda de nu-metal americana formada em 1996.", "favorite": false }
+]

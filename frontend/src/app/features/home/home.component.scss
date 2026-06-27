@@ -1,0 +1,47 @@
+.pb-accent { color: var(--pb-primary); }
+
+/* HERO */
+.pb-hero { position: relative; padding: 3rem 0 5rem; overflow: hidden; }
+.pb-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(29,185,84,.12) 0%, transparent 70%), radial-gradient(ellipse 50% 50% at 20% 80%, rgba(46,117,182,.1) 0%, transparent 60%); pointer-events: none; }
+.pb-hero-grid { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.pb-hero-title { font-family: var(--pb-font-display); font-weight: 800; font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.05; letter-spacing: -1.5px; margin-bottom: 1.5rem; }
+.pb-hero-sub { font-size: 1.1rem; color: var(--pb-muted); max-width: 460px; line-height: 1.7; margin-bottom: 2rem; }
+.pb-hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.pb-hero-badge { display: inline-flex; align-items: center; gap: .4rem; background: rgba(29,185,84,.1); border: 1px solid rgba(29,185,84,.25); border-radius: 50px; padding: .4rem 1rem; font-size: .8rem; color: var(--pb-primary); }
+
+.pb-hero-player { display: flex; justify-content: center; }
+.pb-mini-player { background: var(--pb-surface); border: 1px solid var(--pb-border); border-radius: 20px; padding: 1.75rem; width: 100%; max-width: 360px; }
+.pb-mini-head { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.25rem; }
+.pb-mini-art { width: 56px; height: 56px; border-radius: 12px; background: linear-gradient(135deg, #1db954, #0e7a34); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; }
+.pb-mini-title { font-family: var(--pb-font-display); font-weight: 700; }
+.pb-mini-sub { font-size: .82rem; color: var(--pb-muted); }
+.pb-mini-heart { margin-left: auto; color: var(--pb-primary); }
+.pb-mini-progress { height: 3px; background: var(--pb-border); border-radius: 2px; margin-bottom: .5rem; }
+.pb-mini-progress-fill { width: 38%; height: 100%; background: var(--pb-primary); border-radius: 2px; }
+.pb-mini-times { display: flex; justify-content: space-between; font-size: .75rem; color: var(--pb-muted); margin-bottom: 1rem; }
+.pb-mini-controls { display: flex; justify-content: center; gap: 1.5rem; font-size: 1.3rem; align-items: center; }
+.pb-mini-play { color: var(--pb-primary); font-size: 2rem; }
+
+/* FEATURES */
+.pb-features { padding: 4rem 0; }
+.pb-feature-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.pb-feature-card { background: var(--pb-surface); border: 1px solid var(--pb-border); border-radius: 16px; padding: 2rem; transition: border-color .25s, transform .25s; }
+.pb-feature-card:hover { border-color: var(--pb-primary); transform: translateY(-4px); }
+.pb-feature-icon { width: 48px; height: 48px; border-radius: 12px; background: rgba(29,185,84,.12); color: var(--pb-primary); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 1.25rem; }
+.pb-feature-title { font-family: var(--pb-font-display); font-weight: 700; font-size: 1.05rem; margin-bottom: .5rem; }
+.pb-feature-desc { color: var(--pb-muted); font-size: .9rem; line-height: 1.65; margin: 0; }
+
+/* FEATURED BANDS */
+.pb-featured-bands { padding: 0 0 4rem; }
+.pb-bands-row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; }
+.pb-band-mini { background: var(--pb-surface); border: 1px solid var(--pb-border); border-radius: 16px; overflow: hidden; transition: transform .2s, border-color .2s; display: block; }
+.pb-band-mini:hover { transform: translateY(-4px); border-color: rgba(29,185,84,.4); }
+.pb-band-mini-thumb { height: 100px; background: linear-gradient(135deg, #1e2f40, #16212e); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
+.pb-band-mini-name { font-family: var(--pb-font-display); font-weight: 700; font-size: .9rem; padding: .75rem .75rem .2rem; }
+.pb-band-mini-genre { font-size: .78rem; color: var(--pb-muted); padding: 0 .75rem .75rem; }
+
+@media (max-width: 900px) {
+  .pb-hero-grid { grid-template-columns: 1fr; }
+  .pb-feature-grid { grid-template-columns: 1fr 1fr; }
+  .pb-bands-row { grid-template-columns: repeat(3, 1fr); }
+}

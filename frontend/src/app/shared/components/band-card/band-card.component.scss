@@ -1,0 +1,25 @@
+.pb-band-card {
+  background: var(--pb-surface);
+  border: 1px solid var(--pb-border);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color .2s, transform .2s;
+  &:hover { border-color: rgba(29,185,84,.45); transform: translateY(-4px); }
+}
+.pb-band-thumb {
+  height: 160px;
+  background: linear-gradient(135deg, #1e2f40 0%, #16212e 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3.5rem; position: relative;
+}
+.pb-band-fav {
+  position: absolute; top: .6rem; right: .6rem;
+  background: rgba(15,25,35,.7); border: none; border-radius: 50%;
+  width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: background .2s; font-size: .9rem;
+  &:hover { background: rgba(15,25,35,.95); }
+}
+.pb-band-info { padding: 1rem; }
+.pb-band-name { font-family: var(--pb-font-display); font-weight: 700; margin-bottom: .25rem; }
+.pb-band-meta { font-size: .8rem; color: var(--pb-muted); }

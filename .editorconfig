@@ -1,0 +1,34 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+trim_trailing_whitespace = true
+
+[*.{cs,csx}]
+indent_size = 4
+dotnet_sort_system_directives_first = true
+dotnet_separate_import_directive_groups = false
+csharp_style_namespace_declarations = file_scoped:warning
+csharp_prefer_braces = true:silent
+dotnet_style_prefer_conditional_expression_over_return = true:suggestion
+dotnet_diagnostic.CA1062.severity = none
+dotnet_diagnostic.CA2007.severity = none
+
+[*.{csproj,props,targets,slnx}]
+indent_size = 2
+
+[*.{json,yml,yaml}]
+indent_size = 2
+
+# --- Supressoes intencionais (padroes de design deliberados) ---
+# CA1031: capturar Exception generica e' proposital no fallback do ErrorLogger e no filtro.
+dotnet_diagnostic.CA1031.severity = none
+# CA1308: normalizar e-mail para minusculas (ToLowerInvariant) e' o comportamento desejado.
+dotnet_diagnostic.CA1308.severity = none
+# CA1812: classes internas instanciadas via DI/reflexao (handlers, configs, repositorios).
+dotnet_diagnostic.CA1812.severity = none
+# CA1515: tipos publicos fazem parte da API publica das bibliotecas de camada.
+dotnet_diagnostic.CA1515.severity = none

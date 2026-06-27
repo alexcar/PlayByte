@@ -1,0 +1,87 @@
+<div class="pb-search-header">
+  <div class="pb-eyebrow pb-text-center">Busca</div>
+  <h1 class="pb-search-title">O que você quer ouvir?</h1>
+
+  <div class="pb-search-box">
+    <p-iconfield>
+      <p-inputicon styleClass="pi pi-search" />
+      <input pInputText [(ngModel)]="term" (keyup.enter)="search()"
+             placeholder="Buscar bandas ou músicas..." class="pb-search-input" />
+    </p-iconfield>
+    <p-button label="Buscar" styleClass="pb-pill" (onClick)="search()" />
+  </div>
+
+  <div class="pb-suggestions">
+    <span class="pb-muted pb-sug-label">Sugestões:</span>
+    @for (s of suggestions; track s) {
+      <button class="pb-sug-chip" (click)="quick(s)">{{ s }}</button>
+    }
+  </div>
+</div>
+
+@if (loading()) {
+  <div class="pb-search-loading">
+    <p-progressSpinner strokeWidth="3" [style]="{ width: '40px', height: '40px' }" />
+    <span class="pb-muted">Buscando...</span>
+  </div>
+} @else if (searched()) {
+  @if (hasResults) {
+    <div class="pb-search-meta pb-muted">
+      Resultados para <strong>"{{ term }}"</strong> · encontrados em {{ elapsedMs() }}ms
+    </div>
+
+    @if (resultBands().length > 0) {
+      <h3 class="pb-result-heading">Bandas</h3>
+      <div class="pb-search-bands">
+        @for (band of resultBands(); track band.id) {
+          <pb-band-card [band]="band" (select)="openBand($event)" (favoriteToggle)="onFavoriteToggle($event)" />
+        }
+      </div>
+    }
+
+    @if (resultTracks().length > 0) {
+      <h3 class="pb-result-heading">Músicas</h3>
+      <div class="pb-card pb-search-tracks">
+        <pb-track-list [tracks]="resultTracks()" />
+      </div>
+    }
+  } @else {
+    <pb-empty-state icon="pi-search" title="Nenhum resultado encontrado"
+                    [message]="'Não encontramos nada para \'' + term + '\'. Tente outro termo.'" />
+  }
+} @else {
+  <pb-empty-state icon="pi-compass" title="Comece a explorar"
+                  message="Busque por bandas ou músicas usando o campo acima." />
+}
+
+<!-- DRAWER detalhe da banda (mesmo do catálogo) -->
+<p-drawer [(visible)]="drawerVisible" position="right" styleClass="pb-band-drawer" [style]="{ width: '440px' }">
+  <ng-template pTemplate="header">
+    <div>
+      <h5 class="pb-drawer-title">{{ selectedBand()?.name }}</h5>
+      <div class="pb-drawer-sub">{{ selectedBand()?.genre }}</div>
+    </div>
+  </ng-template>
+
+  @if (selectedBand(); as band) {
+    <hr class="pb-divider" />
+    <h6 class="pb-albums-heading">Álbuns</h6>
+
+    @if (selectedAlbums().length > 0) {
+      @for (album of selectedAlbums(); track album.id) {
+        <div class="pb-album-block">
+          <div class="pb-album-head">
+            <div class="pb-album-thumb">{{ album.emoji }}</div>
+            <div>
+              <div class="pb-album-title">{{ album.title }}</div>
+              <div class="pb-album-meta">{{ album.year }} · {{ album.tracks.length }} faixas</div>
+            </div>
+          </div>
+          <pb-track-list [tracks]="album.tracks" />
+        </div>
+      }
+    } @else {
+      <p class="pb-muted pb-no-albums">Esta banda ainda não possui álbuns cadastrados.</p>
+    }
+  }
+</p-drawer>

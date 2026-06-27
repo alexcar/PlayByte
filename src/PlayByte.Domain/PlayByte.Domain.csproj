@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    A camada de Domain NAO tem dependencias externas (Clean Architecture + DDD).
+    Os eventos de dominio sao marcados por IDomainEvent (interface propria, sem MediatR).
+  -->
+
+</Project>

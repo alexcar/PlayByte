@@ -1,0 +1,28 @@
+.pb-register-wrap { min-height: 100vh; display: flex; }
+.pb-register-side {
+  width: 420px; flex-shrink: 0;
+  background: var(--pb-surface); border-right: 1px solid var(--pb-border);
+  padding: 3rem 2.5rem; display: flex; flex-direction: column; justify-content: center;
+}
+.pb-side-title { font-family: var(--pb-font-display); font-weight: 800; font-size: 1.6rem; margin-bottom: 2rem; }
+.pb-perk { display: flex; align-items: flex-start; gap: .75rem; margin-bottom: 1.25rem; }
+.pb-perk-icon {
+  width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+  background: rgba(29,185,84,.12); color: var(--pb-primary);
+  display: flex; align-items: center; justify-content: center;
+}
+.pb-perk-title { font-weight: 600; font-size: .9rem; }
+.pb-perk-text { font-size: .82rem; color: var(--pb-muted); line-height: 1.5; }
+
+.pb-register-main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 2rem; position: relative; overflow: hidden; }
+.pb-register-card { width: 100%; max-width: 420px; position: relative; z-index: 1; }
+.pb-register-title { font-family: var(--pb-font-display); font-weight: 800; font-size: 1.6rem; margin-bottom: .25rem; }
+.pb-register-sub { font-size: .875rem; margin-bottom: 2rem; }
+
+.pb-terms { display: flex; align-items: flex-start; gap: .5rem; margin: 1rem 0 1.5rem; font-size: .82rem; color: var(--pb-muted);
+  a { color: var(--pb-primary); } label { cursor: pointer; line-height: 1.4; } }
+.pb-login-link { font-size: .85rem; a { color: var(--pb-primary); font-weight: 600; } }
+
+:host ::ng-deep .p-iconfield { width: 100%; .p-inputtext { width: 100%; } }
+
+@media (max-width: 900px) { .pb-register-side { display: none; } }

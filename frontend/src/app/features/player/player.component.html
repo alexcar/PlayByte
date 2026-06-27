@@ -1,0 +1,78 @@
+<div class="pb-player-layout">
+  <!-- NOW PLAYING -->
+  <div class="pb-now-playing">
+    <div class="pb-album-art">{{ player.current()?.emoji ?? '🎵' }}</div>
+    <div class="pb-flex pb-justify-between pb-items-center">
+      <div>
+        <div class="pb-np-title">{{ player.current()?.title }}</div>
+        <div class="pb-np-band">{{ player.current()?.bandName }}@if (player.current()?.albumTitle) { · {{ player.current()?.albumTitle }} }</div>
+      </div>
+      <button class="pb-np-heart"><i class="pi pi-heart"></i></button>
+    </div>
+
+    <div class="pb-waveform pb-mt-2 pb-mb-2">
+      @for (h of waveBars; track $index) {
+        <div class="pb-waveform-bar" [style.--h.px]="h" [style.animation-delay.s]="$index * 0.06"
+             [style.animation-play-state]="player.playing() ? 'running' : 'paused'"></div>
+      }
+    </div>
+
+    <div class="pb-progress"><div class="pb-progress-fill" [style.width.%]="player.progress()"></div></div>
+    <div class="pb-times"><span>2:14</span><span>{{ player.current()?.duration }}</span></div>
+
+    <div class="pb-controls">
+      <i class="pi pi-replay pb-ctrl-sm"></i>
+      <i class="pi pi-step-backward pb-ctrl"></i>
+      <button class="pb-play-btn" (click)="player.togglePlay()">
+        <i class="pi" [class.pi-pause-fill]="player.playing()" [class.pi-play-fill]="!player.playing()"></i>
+      </button>
+      <i class="pi pi-step-forward pb-ctrl"></i>
+      <i class="pi pi-refresh pb-ctrl-sm"></i>
+    </div>
+
+    <div class="pb-volume">
+      <i class="pi pi-volume-down"></i>
+      <p-slider [(ngModel)]="volume" styleClass="pb-w-full" />
+      <i class="pi pi-volume-up"></i>
+    </div>
+
+    @if (!auth.isPaid()) {
+      <div class="pb-player-locked">
+        <i class="pi pi-lock"></i>
+        <span>Você está no plano gratuito. <a routerLink="/planos">Assine</a> para reproduzir.</span>
+      </div>
+    }
+  </div>
+
+  <!-- QUEUE -->
+  <div class="pb-queue">
+    <div class="pb-flex pb-justify-between pb-items-center pb-mb-3">
+      <div>
+        <div class="pb-eyebrow">Reproduzindo de</div>
+        <h2 class="pb-section-title">A Night at the Opera — Queen</h2>
+      </div>
+      <p-button label="Ver álbum" [outlined]="true" styleClass="pb-pill" routerLink="/catalogo" />
+    </div>
+
+    <div class="pb-card pb-queue-list">
+      <div class="pb-queue-item active">
+        <div class="pb-queue-num"><i class="pi pi-volume-up" style="color: var(--pb-primary); font-size: .8rem;"></i></div>
+        <div class="pb-queue-info">
+          <div class="pb-queue-name" style="color: var(--pb-primary);">{{ player.current()?.title }}</div>
+          <div class="pb-queue-band">{{ player.current()?.bandName }}</div>
+        </div>
+        <span class="pb-queue-dur">{{ player.current()?.duration }}</span>
+      </div>
+      @for (track of queue(); track track.id; let i = $index) {
+        <div class="pb-queue-item" (click)="selectTrack(track)">
+          <div class="pb-queue-num">{{ i + 1 }}</div>
+          <div class="pb-queue-info">
+            <div class="pb-queue-name">{{ track.title }}</div>
+            <div class="pb-queue-band">{{ track.bandName }}</div>
+          </div>
+          <span class="pb-queue-dur">{{ track.duration }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</div>

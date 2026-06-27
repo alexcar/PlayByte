@@ -1,0 +1,166 @@
+/* ============================================================
+   PlayByte — Estilos globais
+   Tokens de design + ajustes sobre o tema PrimeNG (Aura custom)
+   ============================================================ */
+
+:root {
+  --pb-dark:    #0f1923;
+  --pb-surface: #16212e;
+  --pb-border:  #1e2f40;
+  --pb-primary: #1db954;
+  --pb-accent:  #2e75b6;
+  --pb-muted:   #8899aa;
+  --pb-text:    #e8f0f8;
+  --pb-danger:  #e74c3c;
+
+  --pb-radius:  16px;
+  --pb-font-display: 'Syne', sans-serif;
+  --pb-font-body: 'Inter', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: var(--pb-dark);
+  color: var(--pb-text);
+  font-family: var(--pb-font-body);
+  font-size: 15px;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: var(--pb-font-display); margin: 0; }
+
+a { color: inherit; text-decoration: none; }
+
+/* Utilitários de tipografia */
+.pb-display  { font-family: var(--pb-font-display); }
+.pb-eyebrow  { font-size: .72rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--pb-primary); font-weight: 600; }
+.pb-muted    { color: var(--pb-muted); }
+.pb-section-title { font-family: var(--pb-font-display); font-weight: 800; font-size: clamp(1.4rem, 2.5vw, 2rem); letter-spacing: -.5px; }
+
+/* Superfícies */
+.pb-card {
+  background: var(--pb-surface);
+  border: 1px solid var(--pb-border);
+  border-radius: var(--pb-radius);
+}
+.pb-card-hover { transition: border-color .2s, transform .2s; cursor: pointer; }
+.pb-card-hover:hover { border-color: rgba(29,185,84,.4); transform: translateY(-3px); }
+
+/* Badges de plano */
+.pb-badge-free { background: rgba(136,153,170,.15); color: var(--pb-muted); font-size: .72rem; padding: .25rem .65rem; border-radius: 50px; font-weight: 600; }
+.pb-badge-paid { background: rgba(29,185,84,.15); color: var(--pb-primary); font-size: .72rem; padding: .25rem .65rem; border-radius: 50px; font-weight: 600; }
+
+/* Waveform animado (signature element) */
+.pb-waveform { display: flex; align-items: center; gap: 3px; height: 32px; }
+.pb-waveform-bar { width: 3px; border-radius: 2px; background: var(--pb-primary); animation: pb-wave 1.2s ease-in-out infinite; opacity: .85; }
+@keyframes pb-wave { 0%,100% { height: 4px; opacity: .4; } 50% { height: var(--h, 20px); opacity: 1; } }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--pb-dark); }
+::-webkit-scrollbar-thumb { background: var(--pb-border); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #2a4257; }
+
+/* ----- Ajustes finos sobre componentes PrimeNG ----- */
+
+/* Botão primário com cantos arredondados estilo "pill" */
+.p-button.pb-pill { border-radius: 50px; font-family: var(--pb-font-display); font-weight: 700; }
+
+/* Drawer (detalhe da banda no catálogo): o tema PrimeNG vem com fundo claro;
+   aqui forçamos o tema escuro do PlayByte na superfície, no header e no conteúdo.
+   Global porque o overlay pode ser renderizado fora do escopo do componente. */
+.p-drawer.pb-band-drawer,
+.p-drawer.pb-band-drawer .p-drawer-header,
+.p-drawer.pb-band-drawer .p-drawer-content {
+  background: var(--pb-surface);
+  color: var(--pb-text);
+}
+.p-drawer.pb-band-drawer { border-left: 1px solid var(--pb-border); }
+.p-drawer.pb-band-drawer .p-drawer-header { border-bottom: 1px solid var(--pb-border); }
+
+/* Conteúdo do drawer de banda (usado no Catálogo e na Busca). Global porque o
+   overlay/conteúdo pode ficar fora do escopo do componente. */
+.pb-drawer-title { font-family: var(--pb-font-display); font-weight: 800; font-size: 1.2rem; }
+.pb-drawer-sub { font-size: .8rem; color: var(--pb-muted); }
+.pb-band-bio { font-size: .875rem; color: var(--pb-muted); line-height: 1.7; }
+.pb-divider { border: none; border-top: 1px solid var(--pb-border); margin: 1.5rem 0; }
+.pb-albums-heading { font-family: var(--pb-font-display); font-weight: 700; margin-bottom: 1rem; }
+.pb-album-block { margin-bottom: 1.5rem; }
+.pb-album-head { display: flex; align-items: center; gap: 1rem; margin-bottom: .5rem; }
+.pb-album-thumb { width: 48px; height: 48px; border-radius: 8px; background: linear-gradient(135deg, #1e2f40, #16212e); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; }
+.pb-album-title { font-family: var(--pb-font-display); font-weight: 700; font-size: .9rem; }
+.pb-album-meta { font-size: .78rem; color: var(--pb-muted); }
+.pb-no-albums { font-size: .875rem; }
+
+/* Toast: a severidade "info" do tema usa um azul claro que destoa do tema escuro.
+   Padronizamos todas as severidades na superfície escura do PlayByte. */
+.p-toast .p-toast-message {
+  background: var(--pb-surface);
+  border: 1px solid var(--pb-border);
+  color: var(--pb-text);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+.p-toast .p-toast-message .p-toast-message-text,
+.p-toast .p-toast-message .p-toast-summary,
+.p-toast .p-toast-message .p-toast-detail { color: var(--pb-text); }
+.p-toast .p-toast-message.p-toast-message-info .p-toast-message-icon,
+.p-toast .p-toast-message.p-toast-message-success .p-toast-message-icon { color: var(--pb-primary); }
+.p-toast .p-toast-message.p-toast-message-error .p-toast-message-icon { color: var(--pb-danger); }
+.p-toast .p-toast-message.p-toast-message-info { border-left: 3px solid var(--pb-primary); }
+.p-toast .p-toast-message.p-toast-message-success { border-left: 3px solid var(--pb-primary); }
+.p-toast .p-toast-message.p-toast-message-warn { border-left: 3px solid #e0a106; }
+.p-toast .p-toast-message.p-toast-message-error { border-left: 3px solid var(--pb-danger); }
+
+/* Inputs ocupando largura total dentro de formulários */
+.pb-field { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1rem; }
+.pb-field label { font-size: .85rem; font-weight: 500; color: var(--pb-muted); }
+.pb-field .p-inputtext, .pb-field .p-password, .pb-field .p-password-input { width: 100%; }
+
+/* Container central de auth */
+.pb-auth-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.pb-auth-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 60% at 60% 40%, rgba(29,185,84,.08) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 30%, rgba(46,117,182,.07) 0%, transparent 60%);
+  pointer-events: none;
+}
+.pb-auth-card {
+  background: var(--pb-surface);
+  border: 1px solid var(--pb-border);
+  border-radius: 24px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 440px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Helpers de espaçamento simples */
+.pb-mt-1 { margin-top: .5rem; }
+.pb-mt-2 { margin-top: 1rem; }
+.pb-mt-3 { margin-top: 1.5rem; }
+.pb-mt-4 { margin-top: 2rem; }
+.pb-mb-2 { margin-bottom: 1rem; }
+.pb-mb-3 { margin-bottom: 1.5rem; }
+.pb-text-center { text-align: center; }
+.pb-flex { display: flex; }
+.pb-flex-col { display: flex; flex-direction: column; }
+.pb-items-center { align-items: center; }
+.pb-justify-between { justify-content: space-between; }
+.pb-gap-1 { gap: .5rem; }
+.pb-gap-2 { gap: 1rem; }
+.pb-gap-3 { gap: 1.5rem; }
+.pb-w-full { width: 100%; }
+.pb-flex-wrap { flex-wrap: wrap; }

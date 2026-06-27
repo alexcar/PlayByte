@@ -1,0 +1,60 @@
+<div class="pb-flex pb-justify-between pb-items-center pb-mb-3 pb-flex-wrap pb-gap-2">
+  <div>
+    <div class="pb-eyebrow">Catálogo</div>
+    <h1 class="pb-section-title">Bandas</h1>
+  </div>
+  <div class="pb-genres">
+    @for (genre of genres; track genre) {
+      <button class="pb-genre-chip" [class.active]="activeGenre() === genre" (click)="setGenre(genre)">{{ genre }}</button>
+    }
+  </div>
+</div>
+
+@if (!auth.isPaid()) {
+  <pb-upgrade-banner />
+}
+
+<div class="pb-band-grid">
+  @for (band of pagedBands(); track band.id) {
+    <pb-band-card [band]="band" (select)="openBand($event)" (favoriteToggle)="onFavoriteToggle($event)" />
+  }
+</div>
+
+@if (totalRecords() > pageSize) {
+  <div class="pb-paginator-wrap">
+    <p-paginator [rows]="pageSize" [totalRecords]="totalRecords()" [first]="first()" (onPageChange)="onPageChange($event)" />
+  </div>
+}
+
+<!-- DRAWER detalhe da banda -->
+<p-drawer [(visible)]="drawerVisible" position="right" styleClass="pb-band-drawer" [style]="{ width: '440px' }">
+  <ng-template pTemplate="header">
+    <div>
+      <h5 class="pb-drawer-title">{{ selectedBand()?.name }}</h5>
+      <div class="pb-drawer-sub">{{ selectedBand()?.genre }}</div>
+    </div>
+  </ng-template>
+
+  @if (selectedBand(); as band) {
+    <p class="pb-band-bio">{{ band.description }}</p>
+    <hr class="pb-divider" />
+    <h6 class="pb-albums-heading">Álbuns</h6>
+
+    @if (selectedAlbums().length > 0) {
+      @for (album of selectedAlbums(); track album.id) {
+        <div class="pb-album-block">
+          <div class="pb-album-head">
+            <div class="pb-album-thumb">{{ album.emoji }}</div>
+            <div>
+              <div class="pb-album-title">{{ album.title }}</div>
+              <div class="pb-album-meta">{{ album.year }} · {{ album.tracks.length }} faixas</div>
+            </div>
+          </div>
+          <pb-track-list [tracks]="album.tracks" />
+        </div>
+      }
+    } @else {
+      <p class="pb-muted pb-no-albums">Esta banda ainda não possui álbuns cadastrados.</p>
+    }
+  }
+</p-drawer>

@@ -1,0 +1,12 @@
+[
+  { "id": "t3", "title": "Bohemian Rhapsody", "bandName": "Queen", "albumTitle": "A Night at the Opera", "duration": "5:55", "emoji": "🎸", "favorite": true },
+  { "id": "t7", "title": "Wish You Were Here", "bandName": "Pink Floyd", "albumTitle": "Wish You Were Here", "duration": "5:34", "emoji": "🎷", "favorite": true },
+  { "id": "t9", "title": "The Scientist", "bandName": "Coldplay", "albumTitle": "A Rush of Blood to the Head", "duration": "5:09", "emoji": "🎹", "favorite": true },
+  { "id": "t10", "title": "Everlong", "bandName": "Foo Fighters", "albumTitle": "The Colour and the Shape", "duration": "4:10", "emoji": "🥁", "favorite": true },
+  { "id": "t11", "title": "Smells Like Teen Spirit", "bandName": "Nirvana", "albumTitle": "Nevermind", "duration": "5:01", "emoji": "🎻", "favorite": true },
+  { "id": "t12", "title": "Enter Sandman", "bandName": "Metallica", "albumTitle": "Metallica", "duration": "5:31", "emoji": "🎺", "favorite": true },
+  { "id": "t13", "title": "Stairway to Heaven", "bandName": "Led Zeppelin", "albumTitle": "Led Zeppelin IV", "duration": "8:02", "emoji": "🎙️", "favorite": true },
+  { "id": "t14", "title": "Hey Jude", "bandName": "The Beatles", "albumTitle": "The Beatles 1967-1970", "duration": "7:11", "emoji": "🎵", "favorite": false },
+  { "id": "t15", "title": "Creep", "bandName": "Radiohead", "albumTitle": "Pablo Honey", "duration": "3:58", "emoji": "🎤", "favorite": false },
+  { "id": "t16", "title": "You Shook Me All Night Long", "bandName": "AC/DC", "albumTitle": "Back in Black", "duration": "3:30", "emoji": "🪗", "favorite": false }
+]

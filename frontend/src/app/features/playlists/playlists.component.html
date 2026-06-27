@@ -1,0 +1,57 @@
+@if (!selected()) {
+  <!-- LISTA -->
+  <div class="pb-flex pb-justify-between pb-items-center pb-mb-3 pb-flex-wrap pb-gap-2">
+    <div>
+      <div class="pb-eyebrow">Minhas playlists</div>
+      <h1 class="pb-section-title">Playlists</h1>
+    </div>
+    <p-button label="Nova playlist" icon="pi pi-plus" styleClass="pb-pill" (onClick)="openDialog()" />
+  </div>
+
+  <div class="pb-playlist-grid">
+    @for (playlist of playlists(); track playlist.id) {
+      <div class="pb-playlist-card" (click)="open(playlist)">
+        <div class="pb-playlist-thumb">{{ playlist.emoji }}</div>
+        <div class="pb-playlist-info">
+          <div class="pb-playlist-name">{{ playlist.name }}</div>
+          <div class="pb-playlist-meta">{{ playlist.trackCount }} músicas</div>
+        </div>
+      </div>
+    }
+    <div class="pb-playlist-card pb-playlist-new" (click)="openDialog()">
+      <i class="pi pi-plus-circle"></i>
+      <span>Nova playlist</span>
+    </div>
+  </div>
+} @else {
+  <!-- DETALHE -->
+  <p-button label="Voltar" icon="pi pi-arrow-left" [text]="true" (onClick)="back()" styleClass="pb-mb-3" />
+  <div class="pb-playlist-detail">
+    <div class="pb-detail-art">{{ selected()?.emoji }}</div>
+    <div class="pb-detail-info">
+      <div class="pb-eyebrow">Playlist</div>
+      <h2 class="pb-detail-name">{{ selected()?.name }}</h2>
+      <p class="pb-muted">{{ selected()?.trackCount }} músicas</p>
+      <div class="pb-flex pb-gap-1 pb-flex-wrap">
+        <p-button label="Reproduzir" icon="pi pi-play" styleClass="pb-pill" routerLink="/player" />
+        <p-button label="Aleatório" icon="pi pi-refresh" [outlined]="true" styleClass="pb-pill" />
+      </div>
+    </div>
+  </div>
+  <div class="pb-card pb-detail-tracks">
+    <pb-track-list [tracks]="selected()?.tracks ?? []" [removable]="true" (trackRemoved)="removeTrack($event)" />
+  </div>
+}
+
+<!-- DIALOG NOVA PLAYLIST -->
+<p-dialog header="Nova playlist" [(visible)]="dialogVisible" [modal]="true" [style]="{ width: '420px' }" styleClass="pb-dialog">
+  <div class="pb-field">
+    <label for="pname">Nome da playlist</label>
+    <input pInputText id="pname" [(ngModel)]="newName" placeholder="Ex: Sexta à noite" maxlength="100" />
+    <small class="pb-muted pb-char-count">{{ newName.length }} / 100</small>
+  </div>
+  <ng-template pTemplate="footer">
+    <p-button label="Cancelar" [text]="true" (onClick)="dialogVisible = false" />
+    <p-button label="Criar playlist" icon="pi pi-check" styleClass="pb-pill" (onClick)="create()" />
+  </ng-template>
+</p-dialog>

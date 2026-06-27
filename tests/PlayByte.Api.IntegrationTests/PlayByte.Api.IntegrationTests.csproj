@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <!-- xUnit v3 gera alguns avisos benignos; nao tratamos como erro nos testes. -->
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <!-- xUnit1051: uso de CancellationToken nas chamadas HTTP/EF; nao se aplica a estes testes. -->
+    <NoWarn>$(NoWarn);xUnit1051</NoWarn>
+    <!-- Microsoft.Data.SqlClient nao suporta o Invariant Globalization Mode (herdado da raiz). -->
+    <InvariantGlobalization>false</InvariantGlobalization>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\PlayByte.Api\PlayByte.Api.csproj" />
+    <ProjectReference Include="..\..\src\PlayByte.Infrastructure\PlayByte.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit.v3" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+    <PackageReference Include="Shouldly" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" />
+    <PackageReference Include="Testcontainers.MsSql" />
+  </ItemGroup>
+
+</Project>

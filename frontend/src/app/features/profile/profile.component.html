@@ -1,0 +1,147 @@
+<p-confirmDialog styleClass="pb-confirm" />
+
+<!-- HEADER -->
+<div class="pb-profile-header">
+  <p-avatar [image]="auth.user()?.avatarUrl" shape="circle" size="xlarge"
+            [style]="{ width: '88px', height: '88px', border: '3px solid var(--pb-border)' }" />
+  <div class="pb-profile-id">
+    <h1 class="pb-profile-name">{{ auth.user()?.name }}</h1>
+    <p class="pb-muted pb-profile-email">{{ auth.user()?.email }}</p>
+    @if (auth.isPaid()) {
+      <span class="pb-badge-paid"><i class="pi pi-play-circle"></i> Plano Pago</span>
+    } @else {
+      <span class="pb-badge-free">Plano Gratuito</span>
+    }
+  </div>
+  <div class="pb-profile-actions">
+    <p-button label="Editar perfil" icon="pi pi-pencil" [outlined]="true" styleClass="pb-pill" (onClick)="openEdit()" />
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="pb-stats-grid">
+  @for (stat of stats(); track stat.label) {
+    <div class="pb-stat-card">
+      <div class="pb-stat-icon"><i [class]="'pi ' + stat.icon"></i></div>
+      <div class="pb-stat-value">{{ stat.value }}</div>
+      <div class="pb-stat-label">{{ stat.label }}</div>
+    </div>
+  }
+</div>
+
+<div class="pb-profile-cols">
+  <!-- COLUNA ESQUERDA -->
+  <div class="pb-profile-col">
+    <!-- PLANO -->
+    <div class="pb-card pb-panel">
+      <h3 class="pb-panel-title">Assinatura</h3>
+      @if (auth.isPaid()) {
+        <div class="pb-plan-status">
+          <div>
+            <div class="pb-plan-status-name">Plano Pago</div>
+            <div class="pb-muted pb-plan-status-meta">Próxima cobrança em {{ nextBilling() }} · R$ 19,00</div>
+          </div>
+          <p-button label="Cancelar plano" severity="danger" [text]="true" (onClick)="confirmCancelPlan()" />
+        </div>
+      } @else {
+        <div class="pb-upgrade-box">
+          <div>
+            <div class="pb-upgrade-box-title">Você está no plano gratuito</div>
+            <p class="pb-muted pb-upgrade-box-text">Faça upgrade para reproduzir músicas sem limites, em alta qualidade e sem anúncios.</p>
+          </div>
+          <p-button label="Assinar plano pago" icon="pi pi-play-circle" styleClass="pb-pill" (onClick)="upgrade()" />
+        </div>
+      }
+    </div>
+
+    <!-- SEGURANÇA -->
+    <div class="pb-card pb-panel">
+      <h3 class="pb-panel-title">Segurança</h3>
+      <div class="pb-setting-row">
+        <div>
+          <div class="pb-setting-label">Senha</div>
+          <div class="pb-muted pb-setting-desc">Última alteração há 2 meses</div>
+        </div>
+        <p-button label="Alterar" [outlined]="true" size="small" styleClass="pb-pill" (onClick)="passwordVisible = true" />
+      </div>
+      <div class="pb-setting-row">
+        <div>
+          <div class="pb-setting-label">Sair da conta</div>
+          <div class="pb-muted pb-setting-desc">Encerrar a sessão neste dispositivo</div>
+        </div>
+        <p-button label="Sair" severity="danger" [outlined]="true" size="small" styleClass="pb-pill" (onClick)="logout()" />
+      </div>
+    </div>
+
+    <!-- NOTIFICAÇÕES -->
+    <div class="pb-card pb-panel">
+      <h3 class="pb-panel-title">Notificações por e-mail</h3>
+      <div class="pb-toggle-row">
+        <span>Confirmação de contratação</span>
+        <p-toggleswitch [ngModel]="notifContract()" (ngModelChange)="notifContract.set($event)" />
+      </div>
+      <div class="pb-toggle-row">
+        <span>Confirmação de renovação</span>
+        <p-toggleswitch [ngModel]="notifRenewal()" (ngModelChange)="notifRenewal.set($event)" />
+      </div>
+      <div class="pb-toggle-row">
+        <span>Confirmação de cancelamento</span>
+        <p-toggleswitch [ngModel]="notifCancel()" (ngModelChange)="notifCancel.set($event)" />
+      </div>
+      <div class="pb-toggle-row">
+        <span>Novidades e promoções</span>
+        <p-toggleswitch [ngModel]="notifNews()" (ngModelChange)="notifNews.set($event)" />
+      </div>
+    </div>
+  </div>
+
+  <!-- COLUNA DIREITA: HISTÓRICO -->
+  <div class="pb-profile-col">
+    <div class="pb-card pb-panel">
+      <h3 class="pb-panel-title">Histórico da assinatura</h3>
+      <p-timeline [value]="history()" styleClass="pb-timeline">
+        <ng-template pTemplate="marker" let-event>
+          <span class="pb-timeline-marker"><i class="pi pi-circle-fill"></i></span>
+        </ng-template>
+        <ng-template pTemplate="content" let-event>
+          <div class="pb-timeline-title">{{ event.title }}</div>
+          <div class="pb-muted pb-timeline-desc">{{ event.description }}</div>
+          <div class="pb-timeline-date">{{ event.date }}</div>
+        </ng-template>
+      </p-timeline>
+    </div>
+  </div>
+</div>
+
+<!-- DIALOG EDITAR PERFIL -->
+<p-dialog header="Editar perfil" [(visible)]="editVisible" [modal]="true" [style]="{ width: '420px' }">
+  <div class="pb-field">
+    <label for="ename">Nome completo</label>
+    <input pInputText id="ename" [(ngModel)]="editName" />
+  </div>
+  <div class="pb-field">
+    <label for="eemail">E-mail</label>
+    <input pInputText id="eemail" type="email" [(ngModel)]="editEmail" />
+  </div>
+  <ng-template pTemplate="footer">
+    <p-button label="Cancelar" [text]="true" (onClick)="editVisible = false" />
+    <p-button label="Salvar" icon="pi pi-check" styleClass="pb-pill" (onClick)="saveProfile()" />
+  </ng-template>
+</p-dialog>
+
+<!-- DIALOG ALTERAR SENHA -->
+<p-dialog header="Alterar senha" [(visible)]="passwordVisible" [modal]="true" [style]="{ width: '420px' }">
+  <div class="pb-field">
+    <label for="curpass">Senha atual</label>
+    <p-password id="curpass" [(ngModel)]="currentPassword" [feedback]="false" [toggleMask]="true" styleClass="pb-w-full" />
+  </div>
+  <div class="pb-field">
+    <label for="newpass2">Nova senha</label>
+    <p-password id="newpass2" [(ngModel)]="newPassword" [toggleMask]="true" styleClass="pb-w-full"
+                promptLabel="Escolha uma senha" weakLabel="Fraca" mediumLabel="Média" strongLabel="Forte" />
+  </div>
+  <ng-template pTemplate="footer">
+    <p-button label="Cancelar" [text]="true" (onClick)="passwordVisible = false" />
+    <p-button label="Salvar nova senha" icon="pi pi-check" styleClass="pb-pill" (onClick)="savePassword()" />
+  </ng-template>
+</p-dialog>

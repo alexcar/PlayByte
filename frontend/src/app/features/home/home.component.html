@@ -1,0 +1,85 @@
+<!-- HERO -->
+<section class="pb-hero">
+  <div class="pb-hero-bg"></div>
+  <div class="pb-hero-grid">
+    <div class="pb-hero-text">
+      <div class="pb-eyebrow pb-mb-2"><i class="pi pi-wifi"></i> Streaming de Música</div>
+      <h1 class="pb-hero-title">Descubra sua próxima banda <span class="pb-accent">favorita.</span></h1>
+      <p class="pb-hero-sub">
+        Explore bandas, álbuns e músicas. Crie playlists personalizadas e ouça tudo no seu ritmo —
+        grátis ou com o plano completo.
+      </p>
+      <div class="pb-hero-actions">
+        <p-button label="Criar conta grátis" icon="pi pi-user-plus" styleClass="pb-pill" routerLink="/cadastro" />
+        <p-button label="Já tenho conta" [outlined]="true" styleClass="pb-pill" routerLink="/login" />
+      </div>
+      <div class="pb-hero-badge">
+        <i class="pi pi-shield"></i> Plano gratuito para sempre — sem cartão de crédito
+      </div>
+    </div>
+
+    <!-- Mini player -->
+    <div class="pb-hero-player">
+      <div class="pb-mini-player">
+        <div class="pb-mini-head">
+          <div class="pb-mini-art">🎸</div>
+          <div class="pb-mini-info">
+            <div class="pb-mini-title">Bohemian Rhapsody</div>
+            <div class="pb-mini-sub">Queen · Greatest Hits</div>
+          </div>
+          <i class="pi pi-heart-fill pb-mini-heart"></i>
+        </div>
+        <div class="pb-waveform pb-mb-2">
+          @for (h of waveBars; track $index) {
+            <div class="pb-waveform-bar" [style.--h.px]="h" [style.animation-delay.s]="$index * 0.06"></div>
+          }
+        </div>
+        <div class="pb-mini-progress"><div class="pb-mini-progress-fill"></div></div>
+        <div class="pb-mini-times"><span>2:14</span><span>5:55</span></div>
+        <div class="pb-mini-controls">
+          <i class="pi pi-step-backward"></i>
+          <i class="pi pi-pause-circle pb-mini-play"></i>
+          <i class="pi pi-step-forward"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="pb-features">
+  <div class="pb-text-center pb-mb-3">
+    <div class="pb-eyebrow">O que você pode fazer</div>
+    <h2 class="pb-section-title">Tudo que a música precisa</h2>
+  </div>
+  <div class="pb-feature-grid">
+    @for (f of features; track f.title) {
+      <div class="pb-feature-card">
+        <div class="pb-feature-icon"><i [class]="'pi ' + f.icon"></i></div>
+        <div class="pb-feature-title">{{ f.title }}</div>
+        <p class="pb-feature-desc">{{ f.desc }}</p>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- BANDAS EM DESTAQUE -->
+<section class="pb-featured-bands">
+  <div class="pb-flex pb-justify-between pb-items-center pb-mb-3">
+    <div>
+      <div class="pb-eyebrow">Destaques</div>
+      <h2 class="pb-section-title">Bandas em destaque</h2>
+    </div>
+    <p-button label="Ver tudo" icon="pi pi-arrow-right" iconPos="right" [outlined]="true"
+              styleClass="pb-pill" routerLink="/catalogo" />
+  </div>
+  <div class="pb-bands-row">
+    @for (band of bands().slice(0, 6); track band.id) {
+      <a routerLink="/catalogo" class="pb-band-mini">
+        <div class="pb-band-mini-thumb">{{ band.emoji }}</div>
+        <div class="pb-band-mini-name">{{ band.name }}</div>
+        <div class="pb-band-mini-genre">{{ band.genre }}</div>
+      </a>
+    }
+  </div>
+</section>

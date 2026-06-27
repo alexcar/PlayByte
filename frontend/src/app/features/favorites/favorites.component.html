@@ -1,0 +1,40 @@
+<div class="pb-eyebrow">Minha coleção</div>
+<h1 class="pb-section-title pb-mb-3">Favoritos</h1>
+
+<p-tabs [value]="activeTab()" (valueChange)="activeTab.set($any($event))">
+  <p-tablist>
+    <p-tab value="tracks"><i class="pi pi-music"></i> Músicas <span class="pb-tab-count">{{ favorites.trackCount() }}</span></p-tab>
+    <p-tab value="bands"><i class="pi pi-users"></i> Bandas <span class="pb-tab-count">{{ favorites.bandCount() }}</span></p-tab>
+  </p-tablist>
+
+  <p-tabpanels>
+    <!-- MÚSICAS -->
+    <p-tabpanel value="tracks">
+      <div class="pb-flex pb-justify-between pb-items-center pb-mb-2">
+        <span class="pb-muted pb-fav-count">{{ favorites.trackCount() }} músicas favoritadas</span>
+        <p-button label="Reproduzir tudo" icon="pi pi-play" styleClass="pb-pill" size="small" routerLink="/player" />
+      </div>
+      <div class="pb-card pb-fav-list">
+        <pb-track-list [tracks]="favorites.favTracks()" />
+      </div>
+    </p-tabpanel>
+
+    <!-- BANDAS -->
+    <p-tabpanel value="bands">
+      <div class="pb-muted pb-fav-count pb-mb-2">{{ favorites.bandCount() }} bandas favoritadas</div>
+      <div class="pb-flex pb-flex-col pb-gap-1">
+        @for (band of favorites.favBands(); track band.id) {
+          <div class="pb-fav-band-card">
+            <div class="pb-fav-band-emoji">{{ band.emoji }}</div>
+            <div class="pb-flex-1">
+              <div class="pb-fav-band-name">{{ band.name }}</div>
+              <div class="pb-fav-band-meta">{{ band.genre || 'Banda' }}@if (band.albumCount) { · {{ band.albumCount }} álbuns }</div>
+            </div>
+            <p-button label="Ver banda" [text]="true" size="small" routerLink="/catalogo" />
+            <button class="pb-unfav-btn" (click)="removeBand(band.id)"><i class="pi pi-heart-fill"></i></button>
+          </div>
+        }
+      </div>
+    </p-tabpanel>
+  </p-tabpanels>
+</p-tabs>

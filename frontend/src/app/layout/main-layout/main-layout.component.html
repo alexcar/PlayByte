@@ -1,0 +1,50 @@
+<nav class="pb-navbar">
+  <div class="pb-navbar-inner">
+    <a routerLink="/inicio" class="pb-logo">Play<span>Byte</span></a>
+
+    @if (auth.isAuthenticated()) {
+      <div class="pb-nav-links">
+        <a routerLink="/catalogo" routerLinkActive="active" class="pb-nav-link">
+          <i class="pi pi-list"></i><span>Catálogo</span>
+        </a>
+        <a routerLink="/busca" routerLinkActive="active" class="pb-nav-link">
+          <i class="pi pi-search"></i><span>Busca</span>
+        </a>
+        <a routerLink="/playlists" routerLinkActive="active" class="pb-nav-link">
+          <i class="pi pi-play-circle"></i><span>Playlists</span>
+        </a>
+        <a routerLink="/favoritos" routerLinkActive="active" class="pb-nav-link">
+          <i class="pi pi-heart"></i><span>Favoritos</span>
+        </a>
+        <a routerLink="/player" routerLinkActive="active" class="pb-nav-link">
+          <i class="pi pi-volume-up"></i><span>Player</span>
+        </a>
+      </div>
+
+      <div class="pb-nav-right">
+        @if (auth.isPaid()) {
+          <span class="pb-badge-paid"><i class="pi pi-play-circle"></i> Plano Pago</span>
+        } @else {
+          <span class="pb-badge-free">Plano Gratuito</span>
+        }
+        <a routerLink="/perfil">
+          <p-avatar [image]="auth.user()?.avatarUrl" shape="circle" size="normal"
+                    [style]="{ border: '2px solid var(--pb-border)' }" />
+        </a>
+      </div>
+    } @else {
+      <div class="pb-nav-links">
+        <a routerLink="/catalogo" routerLinkActive="active" class="pb-nav-link"><span>Catálogo</span></a>
+        <a routerLink="/planos" routerLinkActive="active" class="pb-nav-link"><span>Planos</span></a>
+      </div>
+      <div class="pb-nav-right">
+        <p-button label="Entrar" [text]="true" routerLink="/login" styleClass="pb-pill" />
+        <p-button label="Criar conta" routerLink="/cadastro" styleClass="pb-pill" />
+      </div>
+    }
+  </div>
+</nav>
+
+<main class="pb-main-content">
+  <router-outlet />
+</main>

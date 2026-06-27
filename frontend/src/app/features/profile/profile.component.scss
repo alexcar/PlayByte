@@ -1,0 +1,40 @@
+.pb-profile-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+.pb-profile-name { font-family: var(--pb-font-display); font-weight: 800; font-size: 1.8rem; margin-bottom: .2rem; }
+.pb-profile-email { font-size: .9rem; margin-bottom: .5rem; }
+.pb-profile-actions { margin-left: auto; }
+
+.pb-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+.pb-stat-card { background: var(--pb-surface); border: 1px solid var(--pb-border); border-radius: 14px; padding: 1.25rem; text-align: center; }
+.pb-stat-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(29,185,84,.12); color: var(--pb-primary); display: flex; align-items: center; justify-content: center; margin: 0 auto .75rem; }
+.pb-stat-value { font-family: var(--pb-font-display); font-weight: 800; font-size: 1.5rem; }
+.pb-stat-label { font-size: .78rem; color: var(--pb-muted); }
+
+.pb-profile-cols { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1.5rem; align-items: start; }
+.pb-profile-col { display: flex; flex-direction: column; gap: 1.5rem; }
+.pb-panel { padding: 1.5rem; }
+.pb-panel-title { font-family: var(--pb-font-display); font-weight: 700; font-size: 1.05rem; margin-bottom: 1.25rem; }
+
+.pb-plan-status, .pb-setting-row, .pb-toggle-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.pb-setting-row { padding: .85rem 0; border-bottom: 1px solid var(--pb-border); }
+.pb-setting-row:last-child { border-bottom: none; }
+.pb-setting-label { font-weight: 500; font-size: .9rem; }
+.pb-setting-desc { font-size: .8rem; }
+.pb-plan-status-name { font-family: var(--pb-font-display); font-weight: 700; }
+.pb-plan-status-meta { font-size: .82rem; }
+
+.pb-upgrade-box { display: flex; flex-direction: column; gap: 1rem; }
+.pb-upgrade-box-title { font-family: var(--pb-font-display); font-weight: 700; margin-bottom: .25rem; }
+.pb-upgrade-box-text { font-size: .85rem; line-height: 1.6; margin: 0; }
+
+.pb-toggle-row { padding: .65rem 0; font-size: .9rem; }
+
+.pb-timeline-title { font-weight: 600; font-size: .9rem; }
+.pb-timeline-desc { font-size: .8rem; line-height: 1.5; }
+.pb-timeline-date { font-size: .75rem; color: var(--pb-primary); margin-top: .25rem; }
+.pb-timeline-marker { color: var(--pb-primary); font-size: .6rem; }
+
+@media (max-width: 900px) {
+  .pb-stats-grid { grid-template-columns: 1fr 1fr; }
+  .pb-profile-cols { grid-template-columns: 1fr; }
+  .pb-profile-actions { margin-left: 0; }
+}

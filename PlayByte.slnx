@@ -1,0 +1,20 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/PlayByte.Domain/PlayByte.Domain.csproj" />
+    <Project Path="src/PlayByte.Application/PlayByte.Application.csproj" />
+    <Project Path="src/PlayByte.Infrastructure/PlayByte.Infrastructure.csproj" />
+    <Project Path="src/PlayByte.Api/PlayByte.Api.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/PlayByte.Domain.UnitTests/PlayByte.Domain.UnitTests.csproj" />
+    <Project Path="tests/PlayByte.Api.UnitTests/PlayByte.Api.UnitTests.csproj" />
+    <Project Path="tests/PlayByte.Api.IntegrationTests/PlayByte.Api.IntegrationTests.csproj" />
+  </Folder>
+  <Folder Name="/solution-items/">
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path=".editorconfig" />
+    <File Path="docker-compose.yml" />
+    <File Path="README.md" />
+  </Folder>
+</Solution>

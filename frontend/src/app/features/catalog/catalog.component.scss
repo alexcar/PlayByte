@@ -1,0 +1,13 @@
+.pb-genres { display: flex; gap: .5rem; flex-wrap: wrap; }
+.pb-genre-chip { background: var(--pb-border); color: var(--pb-muted); font-size: .8rem; padding: .35rem .8rem; border: none; border-radius: 50px; cursor: pointer; transition: background .2s, color .2s; }
+.pb-genre-chip:hover, .pb-genre-chip.active { background: rgba(29,185,84,.15); color: var(--pb-primary); }
+
+.pb-band-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-bottom: 2rem; }
+.pb-paginator-wrap { display: flex; justify-content: center; }
+
+/* Os estilos do drawer de banda (fundo escuro e conteúdo) ficam em styles.scss
+   (global), compartilhados entre Catálogo e Busca, pois o overlay pode ser
+   renderizado fora do escopo deste componente. */
+
+@media (max-width: 1100px) { .pb-band-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 700px) { .pb-band-grid { grid-template-columns: repeat(2, 1fr); } }

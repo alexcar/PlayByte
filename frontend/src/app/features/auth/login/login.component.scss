@@ -1,0 +1,8 @@
+.pb-auth-logo { font-family: var(--pb-font-display); font-weight: 800; font-size: 1.8rem; color: var(--pb-primary); margin-bottom: .25rem; }
+.pb-auth-title { font-size: 1.3rem; font-weight: 700; margin-bottom: .25rem; }
+.pb-auth-sub { font-size: .875rem; margin: 0; }
+.pb-forgot { display: flex; justify-content: flex-end; margin-bottom: 1.25rem; a { font-size: .82rem; color: var(--pb-muted); &:hover { color: var(--pb-primary); } } }
+.pb-divider-text { font-size: .8rem; color: var(--pb-muted); }
+.pb-social { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+.pb-signup { font-size: .85rem; a { color: var(--pb-primary); font-weight: 600; } }
+:host ::ng-deep .p-iconfield { width: 100%; .p-inputtext { width: 100%; } }

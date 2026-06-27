@@ -1,0 +1,68 @@
+<div class="pb-register-wrap">
+  <!-- Lado esquerdo: benefícios -->
+  <aside class="pb-register-side">
+    <div class="pb-register-side-inner">
+      <div class="pb-eyebrow pb-mb-2">Grátis para sempre</div>
+      <h2 class="pb-side-title">O que você ganha ao criar sua conta</h2>
+      @for (perk of perks; track perk.title) {
+        <div class="pb-perk">
+          <div class="pb-perk-icon"><i [class]="'pi ' + perk.icon"></i></div>
+          <div>
+            <div class="pb-perk-title">{{ perk.title }}</div>
+            <div class="pb-perk-text">{{ perk.text }}</div>
+          </div>
+        </div>
+      }
+    </div>
+  </aside>
+
+  <!-- Lado direito: formulário -->
+  <main class="pb-register-main">
+    <div class="pb-auth-bg"></div>
+    <div class="pb-register-card">
+      <h1 class="pb-register-title">Criar conta grátis</h1>
+      <p class="pb-muted pb-register-sub">Sem cartão de crédito · Sem compromisso</p>
+
+      <div class="pb-field">
+        <label for="name">Nome completo</label>
+        <p-iconfield>
+          <p-inputicon styleClass="pi pi-user" />
+          <input pInputText id="name" [(ngModel)]="name" placeholder="Seu nome" />
+        </p-iconfield>
+      </div>
+
+      <div class="pb-field">
+        <label for="email">E-mail</label>
+        <p-iconfield>
+          <p-inputicon styleClass="pi pi-envelope" />
+          <input pInputText id="email" type="email" [(ngModel)]="email" placeholder="seu@email.com" />
+        </p-iconfield>
+      </div>
+
+      <div class="pb-field">
+        <label for="password">Senha</label>
+        <p-password id="password" [(ngModel)]="password" [toggleMask]="true"
+                    promptLabel="Escolha uma senha" weakLabel="Fraca" mediumLabel="Média" strongLabel="Forte"
+                    placeholder="Mínimo 8 caracteres" styleClass="pb-w-full" />
+      </div>
+
+      <div class="pb-field">
+        <label for="confirm">Confirmar senha</label>
+        <p-password id="confirm" [(ngModel)]="confirmPassword" [feedback]="false" [toggleMask]="true"
+                    placeholder="Repita a senha" styleClass="pb-w-full" />
+      </div>
+
+      <div class="pb-terms">
+        <p-checkbox [(ngModel)]="acceptTerms" [binary]="true" inputId="terms" />
+        <label for="terms">Concordo com os <a href="#">Termos de Uso</a> e a <a href="#">Política de Privacidade</a></label>
+      </div>
+
+      <p-button label="Criar conta grátis" icon="pi pi-user-plus" styleClass="pb-pill pb-w-full"
+                [loading]="loading()" (onClick)="onSubmit()" />
+
+      <p class="pb-text-center pb-muted pb-mt-3 pb-login-link">
+        Já tem conta? <a routerLink="/login">Entrar</a>
+      </p>
+    </div>
+  </main>
+</div>

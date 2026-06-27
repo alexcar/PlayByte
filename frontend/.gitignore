@@ -1,0 +1,20 @@
+# Dependências
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# Build
+/dist
+/tmp
+/out-tsc
+/.angular/cache
+
+# IDEs
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.iml
+
+# Sistema
+.DS_Store
+Thumbs.db

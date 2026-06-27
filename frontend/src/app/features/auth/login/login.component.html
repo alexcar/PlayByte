@@ -1,0 +1,43 @@
+<div class="pb-auth-wrap">
+  <div class="pb-auth-bg"></div>
+  <div class="pb-auth-card">
+    <div class="pb-text-center pb-mb-3">
+      <div class="pb-auth-logo">PlayByte</div>
+      <h1 class="pb-auth-title">Bem-vindo de volta</h1>
+      <p class="pb-muted pb-auth-sub">Entre na sua conta para continuar</p>
+    </div>
+
+    <div class="pb-field">
+      <label for="email">E-mail</label>
+      <p-iconfield>
+        <p-inputicon styleClass="pi pi-envelope" />
+        <input pInputText id="email" type="email" [(ngModel)]="email"
+               placeholder="seu@email.com" autocomplete="email" />
+      </p-iconfield>
+    </div>
+
+    <div class="pb-field">
+      <label for="password">Senha</label>
+      <p-password id="password" [(ngModel)]="password" [feedback]="false" [toggleMask]="true"
+                  placeholder="••••••••" autocomplete="current-password" styleClass="pb-w-full" />
+    </div>
+
+    <div class="pb-forgot">
+      <a routerLink="/esqueci-senha">Esqueci minha senha</a>
+    </div>
+
+    <p-button label="Entrar" icon="pi pi-sign-in" styleClass="pb-pill pb-w-full"
+              [loading]="loading()" (onClick)="onSubmit()" />
+
+    <p-divider align="center"><span class="pb-divider-text">ou continue com</span></p-divider>
+
+    <div class="pb-social">
+      <p-button label="Google" icon="pi pi-google" [outlined]="true" styleClass="pb-w-full" />
+      <p-button label="GitHub" icon="pi pi-github" [outlined]="true" styleClass="pb-w-full" />
+    </div>
+
+    <p class="pb-text-center pb-muted pb-mt-3 pb-signup">
+      Não tem conta? <a routerLink="/cadastro">Criar grátis</a>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="pb-plans">
+  <div class="pb-text-center pb-mb-3">
+    <div class="pb-eyebrow">Planos</div>
+    <h1 class="pb-plans-title">Comece grátis. Ouça sem limites.</h1>
+    <p class="pb-muted pb-plans-sub">Explore o catálogo de graça. Quando quiser ouvir, assine o plano pago e libere tudo.</p>
+    <p-selectButton [options]="billingOptions" [(ngModel)]="billing" optionLabel="label" optionValue="value" [allowEmpty]="false" />
+  </div>
+
+  <!-- CARDS -->
+  <div class="pb-plan-cards">
+    @for (plan of plans(); track plan.id) {
+      <div class="pb-plan-card" [class.featured]="plan.featured">
+        @if (plan.featured) { <div class="pb-plan-badge">Mais popular</div> }
+        <div class="pb-plan-name">{{ plan.name }}</div>
+        <div class="pb-plan-desc">{{ plan.description }}</div>
+        <div class="pb-plan-price">
+          <sup>R$</sup>{{ plan.id === 'paid' ? paidPrice() : '0' }}<sub>/mês</sub>
+        </div>
+        <div class="pb-plan-features">
+          @for (feat of plan.features; track feat.label) {
+            <div class="pb-plan-feature" [class.disabled]="!feat.included">
+              <i class="pi" [class.pi-check-circle]="feat.included" [class.pi-times-circle]="!feat.included"></i>
+              <span [class.pb-feat-highlight]="feat.highlight">{{ feat.label }}</span>
+            </div>
+          }
+        </div>
+        @if (plan.featured) {
+          <p-button label="Assinar agora" icon="pi pi-play-circle" styleClass="pb-pill pb-w-full"
+                    [loading]="subscribing()" (onClick)="onPaidCta()" />
+        } @else {
+          <p-button label="Começar grátis" [outlined]="true" styleClass="pb-pill pb-w-full" (onClick)="onFreeCta()" />
+        }
+      </div>
+    }
+  </div>
+
+  <!-- COMPARATIVO -->
+  <div class="pb-comparison">
+    <h2 class="pb-section-title pb-text-center pb-mb-3">Comparativo detalhado</h2>
+    <p-table [value]="comparison" styleClass="pb-comparison-table">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Recurso</th>
+          <th class="pb-text-center">Gratuito</th>
+          <th class="pb-text-center pb-paid-col">Pago</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-row>
+        <tr>
+          <td>{{ row.feature }}</td>
+          <td class="pb-text-center">
+            <i class="pi" [class.pi-check-circle]="row.free" [class.pi-times-circle]="!row.free"
+               [style.color]="row.free ? 'var(--pb-primary)' : 'var(--pb-muted)'"></i>
+          </td>
+          <td class="pb-text-center">
+            <i class="pi" [class.pi-check-circle]="row.paid" [class.pi-times-circle]="!row.paid"
+               [style.color]="row.paid ? 'var(--pb-primary)' : 'var(--pb-muted)'"></i>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <!-- FAQ -->
+  <div class="pb-faq">
+    <h2 class="pb-section-title pb-text-center pb-mb-3">Dúvidas frequentes</h2>
+    <p-accordion>
+      @for (faq of faqs; track faq.q) {
+        <p-accordion-panel [value]="faq.q">
+          <p-accordion-header>{{ faq.q }}</p-accordion-header>
+          <p-accordion-content><p class="pb-faq-answer">{{ faq.a }}</p></p-accordion-content>
+        </p-accordion-panel>
+      }
+    </p-accordion>
+  </div>
+</div>

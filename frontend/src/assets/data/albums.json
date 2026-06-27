@@ -1,0 +1,25 @@
+[
+  {
+    "id": "a1", "bandId": "b1", "title": "A Night at the Opera", "year": 1975, "emoji": "💿",
+    "tracks": [
+      { "id": "t1", "title": "Death on Two Legs", "bandName": "Queen", "albumTitle": "A Night at the Opera", "duration": "3:43", "emoji": "🎸", "favorite": false },
+      { "id": "t2", "title": "Lazing on a Sunday Afternoon", "bandName": "Queen", "albumTitle": "A Night at the Opera", "duration": "1:08", "emoji": "🎸", "favorite": false },
+      { "id": "t3", "title": "Bohemian Rhapsody", "bandName": "Queen", "albumTitle": "A Night at the Opera", "duration": "5:55", "emoji": "🎸", "favorite": true },
+      { "id": "t4", "title": "You're My Best Friend", "bandName": "Queen", "albumTitle": "A Night at the Opera", "duration": "2:52", "emoji": "🎸", "favorite": false }
+    ]
+  },
+  {
+    "id": "a2", "bandId": "b1", "title": "Greatest Hits", "year": 1981, "emoji": "💽",
+    "tracks": [
+      { "id": "t5", "title": "We Will Rock You", "bandName": "Queen", "albumTitle": "Greatest Hits", "duration": "2:02", "emoji": "🎸", "favorite": false },
+      { "id": "t6", "title": "We Are the Champions", "bandName": "Queen", "albumTitle": "Greatest Hits", "duration": "2:59", "emoji": "🎸", "favorite": false }
+    ]
+  },
+  {
+    "id": "a3", "bandId": "b4", "title": "Wish You Were Here", "year": 1975, "emoji": "📀",
+    "tracks": [
+      { "id": "t7", "title": "Wish You Were Here", "bandName": "Pink Floyd", "albumTitle": "Wish You Were Here", "duration": "5:34", "emoji": "🎷", "favorite": true },
+      { "id": "t8", "title": "Shine On You Crazy Diamond", "bandName": "Pink Floyd", "albumTitle": "Wish You Were Here", "duration": "13:32", "emoji": "🎷", "favorite": false }
+    ]
+  }
+]

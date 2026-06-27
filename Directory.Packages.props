@@ -1,0 +1,63 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+  </PropertyGroup>
+  <!--
+    ============================================================================
+    NOTA DE LICENCIAMENTO
+    ============================================================================
+    MediatR 14.x e AutoMapper 16.x sao COMERCIAIS (Lucky Penny Software).
+    Esta solution usa esses pacotes com LicenseKey configurada (ver
+    PlayByte.Application/DependencyInjection.cs) - elegivel pela Community
+    License gratuita para receita < US$ 5M.
+
+    IMPORTANTE: a LicenseKey nao deve ficar versionada em codigo. Prefira
+    user-secrets / variavel de ambiente / appsettings fora do controle de
+    versao. Ex.: builder.Configuration["LuckyPenny:LicenseKey"].
+    ============================================================================
+  -->
+  <ItemGroup Label="CQRS / Mediator / Mapping / Validation">
+    <PackageVersion Include="MediatR" Version="14.1.0" />
+    <PackageVersion Include="AutoMapper" Version="16.1.1" />
+    <PackageVersion Include="FluentValidation" Version="12.1.1" />
+    <PackageVersion Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.9" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.9" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.9" />
+    <PackageVersion Include="Microsoft.Extensions.Hosting.Abstractions" Version="10.0.9" />
+    <PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="10.0.9" />
+  </ItemGroup>
+  <ItemGroup Label="Persistencia - EF Core (CUD) + Dapper (Queries)">
+    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="10.0.9" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.9" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.0" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.9" />
+    <PackageVersion Include="EFCore.NamingConventions" Version="10.0.1" />
+    <PackageVersion Include="Dapper" Version="2.1.79" />
+  </ItemGroup>
+  <ItemGroup Label="Seguranca">
+    <PackageVersion Include="BCrypt.Net-Next" Version="4.2.0" />
+    <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.0" />
+    <PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="8.3.0" />
+  </ItemGroup>
+  <ItemGroup Label="Logging - Serilog (Console + File bundled em AspNetCore)">
+    <PackageVersion Include="Serilog.AspNetCore" Version="9.0.0" />
+    <PackageVersion Include="Serilog.Settings.Configuration" Version="9.0.0" />
+  </ItemGroup>
+  <ItemGroup Label="API / OpenAPI">
+    <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0" />
+    <PackageVersion Include="Scalar.AspNetCore" Version="2.8.9" />
+  </ItemGroup>
+  <ItemGroup Label="Testes (xUnit v3 + Shouldly + NSubstitute - todos OSS livres)">
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageVersion Include="xunit.v3" Version="3.0.0" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.0" />
+    <PackageVersion Include="Shouldly" Version="4.3.0" />
+    <PackageVersion Include="NSubstitute" Version="5.3.0" />
+  </ItemGroup>
+  <ItemGroup Label="Testes de integracao (WebApplicationFactory + Testcontainers)">
+    <PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="10.0.0" />
+    <PackageVersion Include="Testcontainers.MsSql" Version="4.6.0" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,52 @@
+<div class="pb-track-list">
+  @for (track of tracks; track track.id; let i = $index) {
+    <div class="pb-track-row" (click)="onPlay(track)">
+      @if (showIndex) {
+        <div class="pb-track-num">{{ i + 1 }}</div>
+      }
+      <button class="pb-track-play" (click)="onPlay(track); $event.stopPropagation()">
+        <i class="pi pi-play-fill"></i>
+      </button>
+      <div class="pb-track-thumb">{{ track.emoji }}</div>
+      <div class="pb-track-info">
+        <div class="pb-track-title">{{ track.title }}</div>
+        <div class="pb-track-sub">{{ track.bandName }}@if (track.albumTitle) { · {{ track.albumTitle }} }</div>
+      </div>
+      <span class="pb-track-dur">{{ track.duration }}</span>
+      @if (removable) {
+        <button class="pb-track-fav" (click)="onRemove(track, $event)" title="Remover da playlist">
+          <i class="pi pi-minus" style="color: var(--pb-muted)"></i>
+        </button>
+      } @else {
+        <button class="pb-track-fav" (click)="openPicker(track, $event)" title="Adicionar à playlist">
+          <i class="pi pi-plus" style="color: var(--pb-muted)"></i>
+        </button>
+      }
+      <button class="pb-track-fav" (click)="onToggleFav(track, $event)">
+        <i class="pi" [class.pi-heart-fill]="track.favorite" [class.pi-heart]="!track.favorite"
+           [style.color]="track.favorite ? 'var(--pb-danger)' : 'var(--pb-muted)'"></i>
+      </button>
+    </div>
+  }
+</div>
+
+<!-- Seletor de playlist (US-13) -->
+<p-dialog header="Adicionar à playlist" [(visible)]="pickerVisible" [modal]="true"
+          [style]="{ width: '380px' }" styleClass="pb-dialog">
+  @if (playlists().length > 0) {
+    <div class="pb-flex pb-flex-col pb-gap-1">
+      @for (playlist of playlists(); track playlist.id) {
+        <button class="pb-track-row" style="width:100%;border:0;background:none;cursor:pointer;text-align:left"
+                (click)="addToPlaylist(playlist.id)">
+          <div class="pb-track-thumb">{{ playlist.emoji }}</div>
+          <div class="pb-track-info">
+            <div class="pb-track-title">{{ playlist.name }}</div>
+            <div class="pb-track-sub">{{ playlist.trackCount }} músicas</div>
+          </div>
+        </button>
+      }
+    </div>
+  } @else {
+    <p class="pb-muted">Você ainda não tem playlists. Crie uma na seção Playlists.</p>
+  }
+</p-dialog>
