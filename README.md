@@ -79,24 +79,24 @@ docker rmi [IMAGE ID]
 
 ### 1. Desenvolvimento de sistemas web e a utilização de arquiteturas em camadas
 
-O aluno desenvolveu a camada de apresentação da aplicação? 👉 [Frontend](./frontend/)  
+O aluno desenvolveu a camada de apresentação da aplicação? 👉 [Frontend](https://github.com/alexcar/PlayByte/tree/main/frontend)  
 O aluno desenvolveu a camada de serviços da aplicação? 👉 [Application](https://github.com/alexcar/PlayByte/tree/main/src/PlayByte.Application)  
-O aluno desenvolveu a camada de negócios da aplicação? 👉 [Domain](./PlayByte.Domain/)  
-O aluno desenvolveu a camada de acesso a dados da aplicação? 👉 [Infrastructure](./PlayByte.Infrastructure/)  
+O aluno desenvolveu a camada de negócios da aplicação? 👉 [Domain](https://github.com/alexcar/PlayByte/tree/main/src/PlayByte.Domain)  
+O aluno desenvolveu a camada de acesso a dados da aplicação? 👉 [Infrastructure](https://github.com/alexcar/PlayByte/tree/main/src/PlayByte.Infrastructure)  
 
 ### 2.  Projetar aplicativos Web com Angular e Web API 
 
-O aluno desenvolveu o módulo de cadastro e login? 👉 [Cadastro](.PlayByte.Api/Controllers/UsersController.cs/) [Login](./Controllers/AuthController.cs/)  
-O aluno desenvolveu o módulo de transação? 👉 [Transação](.PlayByte.Api/Controllers/PaymentsController.cs/)  
-O aluno desenvolveu o módulo de busca de música? 👉 [Busca](.PlayByte.Api/Controllers/SearchController.cs/)  
-O aluno desenvolveu o módulo de favoritar musica? 👉 [Favoritar](.PlayByte.Api/Controllers/FavoritesController.cs/)  
+O aluno desenvolveu o módulo de cadastro e login? 👉 [Cadastro](https://github.com/alexcar/PlayByte/blob/main/src/PlayByte.Api/Controllers/UsersController.cs) [Login](https://github.com/alexcar/PlayByte/blob/main/src/PlayByte.Api/Controllers/AuthController.cs)  
+O aluno desenvolveu o módulo de transação? 👉 [Transação](https://github.com/alexcar/PlayByte/blob/main/src/PlayByte.Api/Controllers/PaymentsController.cs)  
+O aluno desenvolveu o módulo de busca de música? 👉 [Busca](https://github.com/alexcar/PlayByte/blob/main/src/PlayByte.Api/Controllers/SearchController.cs)  
+O aluno desenvolveu o módulo de favoritar musica? 👉 [Favoritar](https://github.com/alexcar/PlayByte/blob/main/src/PlayByte.Api/Controllers/FavoritesController.cs)  
 
 ### 3. Implementar o acesso a dados utilizando o Entity Framework
 
- O aluno criou o modelo de acesso utilizando EF? 👉 [Modelo de acesso](./Persistence/ApplicationDbContext.cs/)  
- O aluno utilizou migrações para criar o banco de dados? 👉 [Migrações](./PlayByte.Infrastructure/Persistence/Migrations/)  
- O aluno utilizou utilizou o padrão repository para operações de acesso a dados? 👉 [Repository](./PlayByte.Infrastructure/Persistence/Repositories/)  
- O aluno utilizou corretamente a injeção de dependência para o acesso ao dados? 👉 [Injeção de dependência](./PlayByte.Infrastructure/DependencyInjection.cs/)  
+ O aluno criou o modelo de acesso utilizando EF? 👉 [Modelo de acesso](https://github.com/alexcar/PlayByte/blob/main/src/PlayByte.Infrastructure/Persistence/ApplicationDbContext.cs)  
+ O aluno utilizou migrações para criar o banco de dados? 👉 [Migrações](https://github.com/alexcar/PlayByte/tree/main/src/PlayByte.Infrastructure/Persistence/Migrations)  
+ O aluno utilizou utilizou o padrão repository para operações de acesso a dados? 👉 [Repository](https://github.com/alexcar/PlayByte/tree/main/src/PlayByte.Infrastructure/Persistence/Repositories)  
+ O aluno utilizou corretamente a injeção de dependência para o acesso ao dados? 👉 [Injeção de dependência](https://github.com/alexcar/PlayByte/blob/main/src/PlayByte.Infrastructure/DependencyInjection.cs)  
 
 ### 4. Disponibilizar aplicativos Web no Microsoft Azure
 
