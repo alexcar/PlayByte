@@ -34,6 +34,7 @@ portas (`IUserRepository`, `IApplicationDbContext`, `ISqlConnectionFactory`, `IP
 git clone https://github.com/alexcar/PlayByte.git
 
 # 2. Abra o terminal na pasta raiz do projeto para subir o banco.
+cd PlayByte
 docker compose up -d
 
 # 3. Atualiza o banco de dados
