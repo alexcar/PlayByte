@@ -30,10 +30,10 @@ portas (`IUserRepository`, `IApplicationDbContext`, `ISqlConnectionFactory`, `IP
 ## Como rodar
 
 ```bash
-# 1. Clone o repositório
+# 1. Abra o terminal em uma pasta e clone o repositório
 git clone https://github.com/alexcar/PlayByte.git
 
-# 2. Abra o terminal na pasta raiz do projeto para subir o banco.
+# 2. Mude para a pasta raiz do projeto para subir o banco.
 cd PlayByte
 docker compose up -d
 
