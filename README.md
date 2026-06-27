@@ -31,10 +31,10 @@ portas (`IUserRepository`, `IApplicationDbContext`, `ISqlConnectionFactory`, `IP
 
 ```bash
 # 1. Clone o repositório
-git clone ...
+`git clone https://github.com/alexcar/PlayByte.git`
 
 # 2. Abra o terminal na pasta raiz do projeto para subir o banco.
-docker compose up -d
+`docker compose up -d`
 
 # 3. Atualiza o banco de dados
 dotnet ef database update -p src/PlayByte.Infrastructure -s src/PlayByte.Api
@@ -53,7 +53,7 @@ npm start
 # 7. Execute o navegador e acesse
 http://localhost:4200
 
-# 8. Na página inicial da aplicação, clice no botão **Criar Conta** para criar uma conta.
+# 8. Na página inicial da aplicação, clice no botão Criar Conta para criar uma conta.
 
 # 9. Precione [Ctrl] + [C] no terminal para finalizar o frontend.
 
